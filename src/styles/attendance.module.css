@@ -1,0 +1,323 @@
+
+.container {
+  min-height: 100vh;
+  background-color: var(--bg-main);
+  padding: 3rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.wrapper {
+  width: 100%;
+  max-width: 1000px;
+  animation: fadeIn 0.3s ease;
+}
+
+/* =========================================
+   STEP 1: PROGRAM SELECTION (ONBOARDING)
+   ========================================= */
+.header {
+  text-align: center;
+  margin-bottom: 3rem;
+
+  h1 {
+    font-size: 2.25rem;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+  }
+
+  p {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+  }
+}
+
+.programGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.programCard {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  padding: 2rem 1.5rem;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+
+  .iconWrapper {
+    background: var(--bg-main);
+    color: var(--brand-blue);
+    padding: 0.75rem;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-light);
+    transition: all 0.2s ease;
+  }
+
+  .cardInfo {
+    h3 {
+      color: var(--text-primary);
+      font-size: 1.125rem;
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+    }
+    span {
+      color: var(--text-muted);
+      font-size: 0.875rem;
+    }
+  }
+
+  &:hover {
+    border-color: var(--brand-green);
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+
+    .iconWrapper {
+      background: var(--brand-green);
+      color: white;
+      border-color: var(--brand-green);
+    }
+  }
+}
+
+/* =========================================
+   STEP 2: THE ATTENDANCE TRACKER HEADER
+   ========================================= */
+.trackerHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+
+  .leftGroup {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    .backBtn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-light);
+      padding: 0.5rem;
+      border-radius: var(--radius-md);
+      color: var(--text-secondary);
+      
+      &:hover {
+        background: var(--border-light);
+        color: var(--text-primary);
+      }
+    }
+
+    h2 {
+      font-size: 1.5rem;
+      color: var(--text-primary);
+    }
+  }
+
+  .datePicker {
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--border-medium);
+    border-radius: var(--radius-md);
+    font-weight: 600;
+    color: var(--text-primary);
+    background: var(--bg-main);
+  }
+}
+
+/* =========================================
+   COMBINED FILTER CONTROLS (COHORT + LEVEL)
+   ========================================= */
+.filterControls {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.filterGroup {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+
+  .filterLabel {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    min-width: 110px;
+  }
+
+  .cohortDropdown {
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--border-medium);
+    border-radius: var(--radius-md);
+    color: var(--text-primary);
+    background-color: var(--bg-main);
+    font-weight: 600;
+    min-width: 220px;
+    cursor: pointer;
+  }
+
+  .levelTab {
+    padding: 0.5rem 1.25rem;
+    border-radius: var(--radius-pill);
+    font-size: 0.875rem;
+    font-weight: 600;
+    background: var(--bg-main);
+    color: var(--text-secondary);
+    border: 1px solid var(--border-medium);
+    transition: all 0.2s ease;
+
+    &:hover:not(.activeTab) {
+      background: var(--bg-surface-hover);
+      color: var(--text-primary);
+    }
+
+    &.activeTab {
+      background: var(--bg-navy);
+      color: white;
+      border-color: var(--bg-navy);
+    }
+  }
+}
+
+/* =========================================
+   ROSTER DATA TABLE
+   ========================================= */
+.tableContainer {
+  background: var(--bg-main);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+
+  th {
+    background: var(--bg-surface);
+    padding: 1rem 1.5rem;
+    text-align: left;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-muted);
+    border-bottom: 1px solid var(--border-light);
+  }
+
+  td {
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid var(--border-light);
+    vertical-align: middle;
+  }
+
+  tr:last-child td {
+    border-bottom: none;
+  }
+
+  tr:hover {
+    background: var(--bg-surface-hover);
+  }
+
+  .studentName {
+    font-weight: 600;
+    color: var(--text-primary);
+    display: block;
+  }
+}
+
+/* Segmented Action Buttons */
+.segmentControl {
+  display: inline-flex;
+  background: var(--bg-main);
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+
+  button {
+    padding: 0.5rem 1.25rem;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    border-right: 1px solid var(--border-light);
+
+    &:last-child {
+      border-right: none;
+    }
+
+    &.activePresent {
+      background: var(--brand-green);
+      color: white;
+    }
+    
+    &.activeLate {
+      background: #eab308; 
+      color: white;
+    }
+    
+    &.activeAbsent {
+      background: var(--brand-orange);
+      color: white;
+    }
+  }
+}
+
+.stickyFooter {
+  position: sticky;
+  bottom: 2rem;
+  margin-top: 2rem;
+  background: var(--bg-main);
+  border: 1px solid var(--border-light);
+  box-shadow: var(--shadow-lg);
+  border-radius: var(--radius-lg);
+  padding: 1rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  .summary {
+    display: flex;
+    gap: 1.5rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+
+    .countPresent { color: var(--brand-green); }
+    .countLate { color: #eab308; }
+    .countAbsent { color: var(--brand-orange); }
+  }
+
+  .saveBtn {
+    background: var(--brand-green);
+    color: white;
+    padding: 0.75rem 2rem;
+    border-radius: var(--radius-md);
+    font-weight: 600;
+    
+    &:hover:not(:disabled) {
+      background: var(--brand-green-dark);
+    }
+    
+    &:disabled {
+      background: var(--border-medium);
+      color: var(--text-muted);
+      cursor: not-allowed;
+    }
+  }
+}

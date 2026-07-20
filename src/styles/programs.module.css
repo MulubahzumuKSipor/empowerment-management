@@ -1,0 +1,211 @@
+
+.pageWrapper {
+  min-height: 100vh;
+  background-color: var(--bg-main);
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  background-color: var(--bg-surface);
+  border-bottom: 1px solid var(--border-light);
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    font-size: 1.125rem;
+  }
+}
+
+.mainContent {
+  flex: 1;
+  padding: 3rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  animation: fadeIn 0.4s ease;
+}
+
+.contentHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+
+  .title {
+    font-size: 2.25rem;
+    font-weight: 800;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.025em;
+  }
+
+  .subtitle {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+    max-width: 600px;
+  }
+}
+
+.createBtn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: var(--brand-green);
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background-color: var(--brand-green-dark);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-md);
+  }
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 2rem;
+}
+
+.programCard {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+
+  .cardIcon {
+    display: inline-flex;
+    background: var(--bg-main);
+    padding: 1rem;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-light);
+    margin-bottom: 1.5rem;
+    color: var(--brand-blue);
+    width: fit-content;
+  }
+
+  .cardTitle {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+  }
+
+  .cardDesc {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.5;
+    flex: 1;
+    margin-bottom: 1.5rem;
+  }
+
+  .cardFooter {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 600;
+    color: var(--brand-green);
+    font-size: 0.95rem;
+    transition: gap 0.2s ease;
+  }
+
+  .deleteProgramBtn {
+    position: absolute;
+    top: 1.25rem;
+    right: 1.25rem;
+    background: var(--bg-main);
+    border: 1px solid var(--border-light);
+    color: var(--text-muted);
+    border-radius: var(--radius-md);
+    padding: 0.5rem;
+    cursor: pointer;
+    z-index: 10;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:hover {
+      color: #ef4444;
+      border-color: #fca5a5;
+      background: #fef2f2;
+    }
+  }
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--brand-green);
+
+    .cardFooter {
+      gap: 0.75rem; 
+    }
+  }
+}
+
+.emptyState {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 4rem 2rem;
+  background: var(--bg-surface);
+  border: 1px dashed var(--border-medium);
+  border-radius: var(--radius-lg);
+  color: var(--text-muted);
+  font-size: 1.1rem;
+}
+
+.loadingContainer {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--bg-main);
+
+  .spinnerWrapper {
+    color: var(--brand-green);
+    margin-bottom: 1.5rem;
+    animation: spin 1s linear infinite;
+  }
+
+  .loadingTitle {
+    font-size: 1.5rem;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+  }
+
+  .loadingSubtitle {
+    color: var(--text-secondary);
+  }
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}

@@ -1,0 +1,116 @@
+.pageContainer {
+  min-height: 100vh;
+  background-color: var(--bg-surface);
+  display: flex;
+  flex-direction: column;
+}
+
+.topNav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  background-color: var(--bg-main);
+  border-bottom: 1px solid var(--border-light);
+
+  .backBtn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--text-secondary);
+    font-weight: 600;
+    cursor: pointer;
+    background: none;
+    border: none;
+
+    &:hover {
+      color: var(--text-primary);
+    }
+  }
+
+  .stepper {
+    display: flex;
+    gap: 0.5rem;
+
+    .stepDot {
+      width: 2.5rem;
+      height: 0.5rem;
+      border-radius: var(--radius-pill);
+      background-color: var(--border-medium);
+      transition: background-color 0.3s ease;
+
+      &.active {
+        background-color: var(--brand-green);
+      }
+
+      &.completed {
+        background-color: var(--bg-navy);
+      }
+    }
+  }
+}
+
+.workspace {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  padding: 4rem 2rem;
+  overflow-y: auto;
+}
+
+.footerBar {
+  background-color: var(--bg-main);
+  border-top: 1px solid var(--border-light);
+  padding: 1.5rem 2rem;
+  display: flex;
+  justify-content: center;
+  position: sticky;
+  bottom: 0;
+  z-index: 50;
+}
+
+.footerContent {
+  width: 100%;
+  max-width: 680px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .btnSecondary {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-medium);
+    color: var(--text-primary);
+    padding: 0.75rem 1.5rem;
+    border-radius: var(--radius-md);
+    font-weight: 600;
+    cursor: pointer;
+    
+    &:hover {
+      background: var(--border-light);
+    }
+  }
+
+  .btnPrimary {
+    background: var(--brand-green);
+    color: white;
+    border: none;
+    padding: 0.75rem 2rem;
+    border-radius: var(--radius-md);
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    
+    &:hover:not(:disabled) {
+      background: var(--brand-green-dark);
+      transform: translateY(-1px);
+    }
+
+    &:disabled {
+      background: var(--border-medium);
+      color: var(--text-muted);
+      cursor: not-allowed;
+    }
+  }
+}

@@ -1,0 +1,394 @@
+/* ─── GLOBAL VARIABLES & LAYOUT ─── */
+.container {
+  max-width: 1000px; 
+  margin: 0 auto;
+  padding: 3rem 2rem;
+  animation: fadeIn 0.3s ease;
+}
+
+/* ─── NAVIGATION ─── */
+.backBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--text-secondary);
+  background: none;
+  border: none;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-bottom: 1.5rem;
+  padding: 0;
+  transition: color 0.2s ease;
+
+  &:hover {
+    color: var(--teal-green, #2a9d8f);
+  }
+}
+
+.loadingState {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 40vh;
+  color: var(--text-muted);
+  font-weight: 500;
+  font-size: 1.1rem;
+}
+
+/* ─── HEADER SECTION ─── */
+.headerCard {
+  margin-bottom: 2rem;
+  border-bottom: 2px solid var(--border-light);
+  padding-bottom: 1.5rem;
+}
+
+.titleGroup {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.iconWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  background: rgba(42, 157, 143, 0.1); /* Matches your var(--teal-green) tint */
+  color: var(--teal-green, #2a9d8f);
+  border-radius: var(--radius-md);
+}
+
+.title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.25rem;
+}
+
+.subtitle {
+  color: var(--text-secondary);
+  font-size: 1rem;
+  margin: 0;
+
+  strong {
+    color: var(--text-primary);
+  }
+}
+
+/* ─── COHORT SELECTOR ─── */
+.selectorBlock {
+  background: var(--bg-surface);
+  padding: 1.5rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-medium);
+  margin-bottom: 2rem;
+}
+
+/* ─── AUTO BANNER (System Generated) ─── */
+.autoBanner {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  background: var(--bg-surface);
+  border-left: 4px solid var(--teal-green, #2a9d8f);
+  padding: 1.25rem 1.5rem;
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+.autoBannerLabel {
+  position: absolute;
+  top: -10px;
+  left: 1rem;
+  background: var(--teal-green, #2a9d8f);
+  color: white;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  padding: 0.2rem 0.5rem;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  letter-spacing: 0.05em;
+}
+
+.autoBannerItem {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.autoBannerItemLabel {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  font-weight: 600;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.autoBannerItemValue {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+/* ─── SECTION CARDS ─── */
+.sectionCard {
+  background: var(--bg-main);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+}
+
+.sectionHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid var(--border-light);
+  padding-bottom: 0.75rem;
+}
+
+.sectionTitle {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+/* ─── GRIDS & INPUTS ─── */
+.gridStack {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.gridTwo {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.gridThree {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-md);
+  background: var(--bg-surface);
+  color: var(--text-primary);
+  font-family: inherit;
+  font-size: 0.95rem;
+  transition: all 0.2s ease;
+
+  &:focus {
+    outline: none;
+    border-color: var(--teal-green, #2a9d8f);
+    box-shadow: 0 0 0 3px rgba(42, 157, 143, 0.15);
+  }
+}
+
+textarea.input {
+  resize: vertical;
+  min-height: 80px;
+}
+
+/* ─── RUBRIC ACCOUNTABILITY LISTS ─── */
+.rubricHint {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
+}
+
+.rubricTrackTitle {
+  font-size: 1rem;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.rubricList {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.rubricRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  background: var(--bg-surface);
+  border-bottom: 1px solid var(--border-light);
+  transition: background 0.2s ease;
+
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+.rubricRowTaught { background: rgba(16, 185, 129, 0.02); }
+.rubricRowMissed { background: rgba(239, 68, 68, 0.02); }
+
+.rubricName {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.rubricBtnGroup {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.rubricBtn {
+  padding: 0.35rem 0.75rem;
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-sm);
+  background: var(--bg-main);
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background: var(--bg-surface-hover);
+    color: var(--text-primary);
+  }
+}
+
+.rubricBtnTaughtActive {
+  background: rgba(16, 185, 129, 0.1);
+  color: #10b981;
+  border-color: #10b981;
+}
+
+.rubricBtnMissedActive {
+  background: rgba(239, 68, 68, 0.1);
+  color: #ef4444;
+  border-color: #ef4444;
+}
+
+/* ─── DYNAMIC ARRAYS (Demographics & Testimonials) ─── */
+.arrayField {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.arrayFieldLabel {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.arrayRow {
+  display: flex;
+  gap: 0.5rem;
+  align-items: flex-start;
+}
+
+.arrayRowInput {
+  flex: 1;
+}
+
+.btnIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem;
+  background: rgba(239, 68, 68, 0.05);
+  color: #ef4444;
+  border: 1px solid rgba(239, 68, 68, 0.2);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background: #ef4444;
+    color: white;
+  }
+}
+
+/* ─── BUTTONS & FOOTER ─── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.65rem 1.25rem;
+  background: transparent;
+  border: 1px dashed var(--teal-green, #2a9d8f);
+  color: var(--teal-green, #2a9d8f);
+  border-radius: var(--radius-md);
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  align-self: flex-start;
+
+  &:hover:not(:disabled) {
+    background: rgba(42, 157, 143, 0.05);
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+.btnPrimary {
+  background: var(--text-primary);
+  color: white;
+  border: 1px solid var(--text-primary);
+  font-size: 1rem;
+  padding: 0.85rem 2rem;
+  align-self: flex-end;
+
+  &:hover:not(:disabled) {
+    background: #000;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+}
+
+.saveFooter {
+  margin-top: 1rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border-light);
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}

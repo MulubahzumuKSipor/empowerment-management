@@ -1,0 +1,185 @@
+/* src/styles/grading.module.scss */
+
+.pageContainer {
+  padding: 3rem 2rem;
+  max-width: 1400px; /* Wider for spreadsheet view */
+  margin: 0 auto;
+  animation: fadeIn 0.3s ease;
+}
+
+.header {
+  margin-bottom: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+
+  h1 { font-size: 2rem; color: var(--text-primary); margin-bottom: 0.5rem; }
+  p { color: var(--text-secondary); font-size: 1.1rem; margin: 0; }
+}
+
+/* ─── FILTER TOOLBAR ─── */
+.toolbar {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  background: var(--bg-surface);
+  padding: 1.5rem;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-light);
+  margin-bottom: 2rem;
+  align-items: end;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+
+  label { font-size: 0.85rem; font-weight: 600; color: var(--text-primary); }
+  
+  select {
+    padding: 0.75rem;
+    border: 1px solid var(--border-medium);
+    border-radius: var(--radius-md);
+    background: var(--bg-main);
+    color: var(--text-primary);
+    font-size: 0.95rem;
+    cursor: pointer;
+    &:focus { outline: none; border-color: var(--brand-green); }
+  }
+}
+
+.loadBtn {
+  padding: 0.75rem 1.5rem;
+  background: var(--text-primary);
+  color: white;
+  border: none;
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  height: 42px; /* Match select heights */
+  transition: all 0.2s ease;
+
+  &:hover:not(:disabled) { transform: translateY(-1px); box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+  &:disabled { opacity: 0.5; cursor: not-allowed; }
+}
+
+/* ─── THE MATRIX (SPREADSHEET) ─── */
+.matrixWrapper {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
+  margin-bottom: 2rem;
+}
+
+.tableContainer {
+  overflow-x: auto;
+  max-width: 100%;
+}
+
+.matrixTable {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+
+  th, td {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid var(--border-light);
+    border-right: 1px solid var(--border-light);
+    text-align: center;
+    min-width: 120px;
+  }
+
+  th {
+    background: var(--bg-main);
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    position: sticky;
+    top: 0;
+    z-index: 5;
+    
+    .maxScore {
+      display: block;
+      color: var(--brand-green);
+      font-size: 0.7rem;
+      margin-top: 0.25rem;
+    }
+  }
+
+  /* Sticky First Column for Student Names */
+  .stickyCol {
+    position: sticky;
+    left: 0;
+    background: var(--bg-surface);
+    z-index: 10;
+    text-align: left;
+    font-weight: 600;
+    min-width: 250px;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.02);
+    border-right: 2px solid var(--border-medium);
+  }
+
+  th.stickyCol { z-index: 15; background: var(--bg-main); }
+
+  tbody tr:hover {
+    .stickyCol { background: var(--bg-surface-hover); }
+    td { background: var(--bg-main); }
+  }
+
+  td:last-child, th:last-child { border-right: none; }
+}
+
+.scoreInput {
+  width: 80px;
+  padding: 0.5rem;
+  text-align: center;
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-sm);
+  background: var(--bg-surface);
+  font-family: inherit;
+  font-weight: 600;
+  color: var(--text-primary);
+  transition: all 0.2s ease;
+
+  &:focus { outline: none; border-color: var(--brand-green); box-shadow: 0 0 0 2px rgba(42, 157, 143, 0.15); }
+  &.invalid { border-color: #ef4444; color: #ef4444; background: rgba(239, 68, 68, 0.05); }
+}
+
+/* ─── FOOTER & ACTIONS ─── */
+.actionFooter {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.5rem 0;
+  border-top: 1px solid var(--border-light);
+}
+
+.saveBtn {
+  padding: 0.85rem 2rem;
+  background: var(--brand-green);
+  color: white;
+  border: none;
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.2s ease;
+
+  &:hover:not(:disabled) { background: #21867a; transform: translateY(-2px); box-shadow: 0 4px 12px rgba(42, 157, 143, 0.2); }
+  &:disabled { opacity: 0.5; cursor: not-allowed; }
+}
+
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }

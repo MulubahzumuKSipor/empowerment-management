@@ -1,0 +1,185 @@
+
+
+.appContainer {
+  display: flex;
+  min-height: 100vh;
+  background-color: var(--bg-main);
+}
+
+.mobileTopBar {
+  display: none; 
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.5rem;
+  background-color: var(--bg-surface);
+  border-bottom: 1px solid var(--border-light);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 30;
+
+  @media (max-width: 768px) {
+    display: flex;
+  }
+}
+
+.mobileTopBarBrand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  text-decoration: none;
+}
+
+.hamburger {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 0.25rem;
+  z-index: 50;
+
+  .hamburgerLine {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background-color: var(--text-primary);
+    border-radius: 2px;
+    transition: all 0.3s ease;
+  }
+
+  &.hamburgerOpen {
+    .hamburgerLine:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburgerLine:nth-child(2) { opacity: 0; }
+    .hamburgerLine:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+  }
+}
+
+/* ─── MOBILE OVERLAY ─── */
+.mobileOverlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(2px);
+  z-index: 35;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+
+  &.mobileOverlayVisible {
+    display: block;
+    opacity: 1;
+  }
+}
+
+/* ─── SIDEBAR ─── */
+.sidebar {
+  width: 260px;
+  background-color: var(--bg-surface);
+  border-right: 1px solid var(--border-light);
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 40;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+  @media (max-width: 768px) {
+    transform: translateX(-100%);
+
+    &.sidebarOpen {
+      transform: translateX(0);
+    }
+  }
+}
+
+.brandLink {
+  text-decoration: none;
+  padding: 1.5rem;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  font-size: 1.1rem;
+}
+
+/* ─── NAVIGATION ─── */
+.navSection {
+  padding: 1.5rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  overflow-y: auto;
+}
+
+.navLabel {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  padding-left: 0.75rem;
+}
+
+.navLink {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem;
+  border-radius: var(--radius-md);
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: all 0.2s ease;
+  background: transparent;
+  border: none;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+
+  &:hover {
+    background-color: var(--bg-surface-hover);
+    color: var(--text-primary);
+  }
+
+  &.navActive {
+    background-color: rgba(140, 198, 63, 0.1);
+    color: var(--brand-green);
+    font-weight: 600;
+  }
+}
+
+.navFooter {
+  padding: 1rem;
+  border-top: 1px solid var(--border-light);
+  background-color: var(--bg-surface);
+}
+
+/* ─── MAIN CONTENT ─── */
+.mainContent {
+  flex: 1;
+  margin-left: 260px;
+  min-width: 0; /* Prevents flexbox blowout */
+  background-color: var(--bg-main);
+
+  @media (max-width: 768px) {
+    margin-left: 0;
+    margin-top: 60px; /* Account for mobile top bar */
+  }
+}

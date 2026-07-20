@@ -1,0 +1,144 @@
+/* src/styles/settings.module.scss */
+
+.pageContainer {
+  padding: 3rem 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+  animation: fadeIn 0.3s ease;
+  padding-bottom: 1rem; /* Space for sticky footer */
+}
+
+.header {
+  margin-bottom: 2rem;
+  border-bottom: 2px solid var(--border-light);
+  padding-bottom: 1.5rem;
+
+  h1 { font-size: 2rem; color: var(--text-primary); margin-bottom: 0.5rem; }
+  p { color: var(--text-secondary); font-size: 1.1rem; margin: 0; }
+}
+
+/* ─── SECTION CARDS ─── */
+.sectionCard {
+  background: var(--bg-main);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+}
+
+.sectionHeader {
+  display: flex; align-items: center; gap: 0.75rem;
+  margin-bottom: 1.5rem; border-bottom: 1px solid var(--border-light);
+  padding-bottom: 0.75rem;
+
+  h3 { font-size: 1.2rem; font-weight: 600; color: var(--text-primary); margin: 0; }
+}
+
+/* ─── FORM ELEMENTS ─── */
+.formGroup {
+  display: flex; flex-direction: column; gap: 0.5rem; margin-bottom: 1.5rem;
+  &:last-child { margin-bottom: 0; }
+
+  label { font-size: 0.85rem; font-weight: 600; color: var(--text-primary); }
+  
+  input[type="text"], textarea, select {
+    width: 100%; padding: 0.75rem 1rem; border: 1px solid var(--border-medium);
+    border-radius: var(--radius-md); background: var(--bg-surface);
+    color: var(--text-primary); font-family: inherit; font-size: 0.95rem;
+    transition: all 0.2s ease;
+
+    &:focus { outline: none; border-color: var(--brand-green); box-shadow: 0 0 0 3px rgba(42, 157, 143, 0.15); }
+  }
+
+  textarea { resize: vertical; min-height: 100px; }
+  .hint { font-size: 0.8rem; color: var(--text-muted); margin-top: 0.25rem; }
+}
+
+/* ─── DYNAMIC ARRAYS (Levels, KPIs) ─── */
+.arrayField {
+  display: flex; flex-direction: column; gap: 0.75rem;
+}
+
+.arrayRow {
+  display: flex; gap: 0.5rem; align-items: center;
+
+  input { flex: 1; }
+}
+
+/* ─── REGISTRATION FORM BUILDER ─── */
+.questionCard {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+  position: relative;
+  transition: border-color 0.2s ease;
+
+  &:hover { border-color: var(--brand-green); }
+}
+
+.questionHeader {
+  display: flex; justify-content: space-between; align-items: flex-start;
+  margin-bottom: 1rem; gap: 1rem;
+}
+
+.questionTypeGroup {
+  display: flex; gap: 1rem; align-items: center;
+}
+
+.toggleSwitch {
+  display: flex; align-items: center; gap: 0.5rem; cursor: pointer; font-size: 0.85rem; font-weight: 600; color: var(--text-secondary);
+  input { accent-color: var(--brand-green); width: 16px; height: 16px; cursor: pointer; }
+}
+
+.optionsList {
+  margin-top: 1rem; padding-top: 1rem; border-top: 1px dashed var(--border-medium);
+  display: flex; flex-direction: column; gap: 0.5rem;
+
+  .optionRow {
+    display: flex; align-items: center; gap: 0.5rem;
+    input { padding: 0.5rem 0.75rem; font-size: 0.85rem; }
+  }
+}
+
+/* ─── BUTTONS ─── */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;
+  padding: 0.65rem 1.25rem; background: transparent; border: 1px dashed var(--brand-green);
+  color: var(--brand-green); border-radius: var(--radius-md); font-size: 0.85rem; font-weight: 600; cursor: pointer; transition: all 0.2s ease;
+  &:hover:not(:disabled) { background: rgba(42, 157, 143, 0.05); }
+}
+
+.btnIcon {
+  display: flex; align-items: center; justify-content: center; padding: 0.75rem;
+  background: rgba(239, 68, 68, 0.05); color: #ef4444; border: 1px solid rgba(239, 68, 68, 0.2);
+  border-radius: var(--radius-md); cursor: pointer; transition: all 0.2s ease;
+  &:hover { background: #ef4444; color: white; }
+}
+
+.btnIconSmall {
+  padding: 0.5rem;
+}
+
+/* ─── STICKY FOOTER ─── */
+.stickyFooter {
+  /* position: fixed; bottom: 0; left: 0; right: 0; */
+  background: var(--bg-surface); border-top: 1px solid var(--border-medium);
+  padding: 1.5rem 2rem;
+  /* display: flex; */
+  justify-content: flex-end; align-items: center;
+  z-index: 100; box-shadow: 0 -4px 20px rgba(0,0,0,0.05);
+}
+
+.saveBtn {
+  padding: 0.85rem 2.5rem; background: var(--text-primary); color: white;
+  border: none; border-radius: var(--radius-md); font-weight: 600; font-size: 1rem; cursor: pointer;
+  display: flex; align-items: center; gap: 0.5rem; transition: all 0.2s ease;
+
+  &:hover:not(:disabled) { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
+  &:disabled { opacity: 0.5; cursor: not-allowed; }
+}
+
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
